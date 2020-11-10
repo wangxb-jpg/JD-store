@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东注册</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .header {
+            width: 100%;
+            height: 110px;
+            box-sizing: border-box;
+            background: url(img/headbg.jpg)repeat-x left bottom;
+        }
+        
+        .header-inner {
+            width: 1210px;
+            height: 50px;
+            margin: 34px auto 26px;
+        }
+        
+        .logo {
+            float: left;
+            width: 160px;
+            height: 50px;
+            background: url(img/icon.png)no-repeat;
+        }
+        
+        h2 {
+            line-height: 50px;
+            float: left;
+            height: 100%;
+            font-weight: 400;
+        }
+        
+        p {
+            margin-top: 20px;
+            float: right;
+        }
+        
+        p a {
+            color: red;
+            text-decoration: none;
+        }
+        
+        p span {
+            color: #999999;
+        }
+        
+        .sign-in {
+            width: 1210px;
+            height: 400px;
+            margin: 0 155px;
+        }
+        
+        .sign-in .status {
+            width: 400px;
+            height: 55px;
+            margin: 100px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .status #start {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999999;
+            width: 80px;
+            height: 55px;
+        }
+        
+        .status #end {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            color: #999999;
+            font-size: 12px;
+            width: 60px;
+            height: 55px;
+        }
+        
+        .status .xian {
+            width: 124px;
+            height: 20px;
+            background: url(img/reg-icon.png)no-repeat left 0 top -100px;
+        }
+        
+        .two {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #cccccc;
+            border-radius: 50%;
+            color: #cccccc;
+            line-height: 24px;
+        }
+        
+        .one {
+            text-align: center;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #cccccc;
+            border-radius: 50%;
+            color: #cccccc;
+            line-height: 24px;
+        }
+    </style>
+    <style>
+        .shuru {
+            width: 400px;
+            margin: 100px auto;
+        }
+        
+        .zh {
+            width: 400px;
+            height: 50px;
+        }
+        
+        .names {
+            text-align: center;
+            line-height: 50px;
+            font-size: 14px;
+            color: #666666;
+            float: left;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100%;
+            border: 1px solid #999999;
+        }
+        
+        .zhh {
+            line-height: 50px;
+            float: right;
+            box-sizing: border-box;
+            padding-left: 10px;
+            width: 300px;
+            height: 100%;
+            border: 1px solid #999999;
+        }
+        
+        .passwd {
+            margin-top: 30px;
+            width: 400px;
+            height: 50px;
+        }
+        
+        .pname {
+            text-align: center;
+            line-height: 50px;
+            font-size: 14px;
+            color: #666666;
+            float: left;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100%;
+            border: 1px solid #999999;
+        }
+        
+        .paswrd {
+            float: right;
+            box-sizing: border-box;
+            padding-left: 10px;
+            width: 300px;
+            height: 100%;
+            border: 1px solid #999999;
+            line-height: 50px;
+        }
+        
+        input {
+            outline: white;
+            border: 0;
+        }
+        
+        #smitd {
+            width: 400px;
+            height: 50px;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            background-color: #e2231a;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo"></div>
+            <h2>欢迎注册</h2>
+            <p>
+                <span>已有账号？ </span>
+                <a href="sign.html"> 请登录></a>
+            </p>
+        </div>
+
+    </div>
+    <div class="sign-in">
+        <div class="status">
+            <!-- //status状态 -->
+            <div id="start">
+                <div class="one">1</div>
+                <p>填写账号信息</p>
+            </div>
+            <div class="xian"></div>
+            <div id="end">
+                <div class="two">2</div>
+                <p>注册成功</p>
+            </div>
+        </div>
+        <div class="shuru">
+            <div class="zh">
+                <div class="names">请填写账号 :</div>
+                <div class="zhh"><input type="text" id="txt1" placeholder="账号..."></div>
+            </div>
+            <div class="passwd">
+                <div class="pname">请填写密码 :</div>
+                <div class="paswrd"><input type="text" id="txt2" placeholder="密码..."></div>
+            </div>
+            <div id="smitd">点击提交账号申请</div>
+        </div>
+    </div>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script>
+        // $("#txt1").change(function() {
+        //     console.log($("#txt1").val())
+        // })
+        $("#smitd").click(function() {
+            $.get("http://jx.xuzhixiang.top/ap/api/reg.php", {
+                "username": $("#txt1").val(),
+                "password": $("#txt2").val()
+            }, data => {
+                console.log(data)
+            })
+            alert("注册成功,点击右上角前往登录")
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东登录</title>
+    <link rel="stylesheet" href="font/iconfont.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .header {
+            box-sizing: border-box;
+            width: 1200px;
+            margin: 0 auto;
+            height: 100px;
+        }
+        
+        .logo {
+            margin-top: 40px;
+            float: left;
+            width: 160px;
+            height: 50px;
+            background: url(img/icon.png)no-repeat;
+        }
+        
+        h2 {
+            margin-top: 40px;
+            line-height: 50px;
+            float: left;
+            height: 100%;
+            font-weight: 400;
+        }
+        
+        .title {
+            width: 100%;
+            height: 30px;
+            background-color: #fff8f0;
+        }
+        
+        .title p {
+            font-size: 12px;
+            width: 58%;
+            color: #999999;
+            margin: 0 auto;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        .main {
+            width: 100%;
+            height: 475px;
+            background-color: #b10008;
+        }
+        
+        .main-inner {
+            width: 990px;
+            height: 475px;
+            margin: 0 auto;
+            background: url(img/003877af759068be.jpg)no-repeat;
+        }
+        
+        .sign {
+            margin-top: 10px;
+            width: 306px;
+            height: 375px;
+            background: #ffffff;
+            float: right;
+        }
+        
+        h3 {
+            box-sizing: border-box;
+            padding-left: 20px;
+            width: 100%;
+            height: 50px;
+            color: red;
+            line-height: 50px;
+            border-bottom: 1px solid #999999;
+        }
+        
+        input {
+            border: 0;
+            outline: white;
+        }
+        
+        .sign-zh {
+            width: 280px;
+            height: 40px;
+            display: flex;
+            box-sizing: border-box;
+            margin: 40px auto 10px;
+        }
+        
+        .names {
+            width: 40px;
+            height: 40px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #999999;
+        }
+        
+        .names span {
+            color: #999999;
+            font-size: 20px;
+        }
+        
+        .zhh {
+            box-sizing: border-box;
+            padding-left: 20px;
+            width: 240px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #999999;
+        }
+        
+        .sign-pd {
+            width: 280px;
+            height: 40px;
+            display: flex;
+            box-sizing: border-box;
+            margin: 20px auto 10px;
+        }
+        
+        .pnames {
+            width: 40px;
+            height: 40px;
+            box-sizing: border-box;
+            border: 1px solid #999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .pnames span {
+            color: #999999;
+            font-size: 20px;
+        }
+        
+        .pwd {
+            box-sizing: border-box;
+            padding-left: 20px;
+            width: 240px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #999999;
+        }
+        
+        #btn {
+            width: 280px;
+            height: 33px;
+            background: red;
+            color: white;
+            text-align: center;
+            line-height: 33px;
+            margin: 10px auto;
+            cursor: pointer;
+        }
+        
+        a {
+            text-decoration: none;
+            color: red;
+            margin-left: 230px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo"></div>
+        <h2>欢迎登录</h2>
+    </div>
+    <div class="title">
+        <p>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版《京东隐私政策》已上线，将更有利于保护您的个人隐私。</p>
+    </div>
+    <div class="main">
+        <div class="main-inner">
+            <div class="sign">
+                <h3>账户登录</h3>
+                <div class="sign-zh">
+                    <div class="names"><span class="iconfont icon-account"></span></div>
+                    <div class="zhh"><input type="text" id="txt1" placeholder="账号"></div>
+                </div>
+                <div class="sign-pd">
+                    <div class="pnames"><span class="iconfont icon-mima"></span></div>
+                    <div class="pwd"><input type="text" id="txt2" placeholder="密码"></div>
+                </div>
+                <div id="btn">登录</div>
+                <a href="login.html">注册账号</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script>
+        $("#btn").click(function() {
+            $.get("http://jx.xuzhixiang.top/ap/api/login.php", {
+                username: $("#txt1").val(),
+                password: $("#txt2").val()
+            }).then(data => {
+                console.log(data.code);
+                if (data.code == 0) {
+                    console.log(data)
+                    alert("用户名或密码错误")
+                } else {
+                    $(location).attr("href", "index.html");
+                    setCookie("username", $("#txt1").val())
+
+                }
+            })
+        })
+
+        function setCookie(key, val) {
+            let now = new Date();
+            now.setDate(now.getDate() + 1);
+            let str = `${key}=${val};path=/;expires=${now}`;
+            document.cookie = str;
+        }
+    </script>
+</body>
+
+</html>

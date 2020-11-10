@@ -82,7 +82,7 @@ $(".main-list").mouseout(function() {
 })
 
 //轮播图
-var swiper = new Swiper(".swiper-container", {
+var swiperw = new Swiper(".swiper-container", {
     spaceBetween: 30,
     effect: "fade",
     autoplay: {
@@ -99,7 +99,7 @@ var swiper = new Swiper(".swiper-container", {
     },
 });
 //小轮播
-var swiper = new Swiper(".swiper-container2", {
+var swiperd = new Swiper(".swiper-container2", {
     spaceBetween: 30,
     effect: "fade",
     autoplay: {
@@ -117,21 +117,72 @@ var swiper = new Swiper(".swiper-container2", {
 });
 //京东秒杀
 var now_closing = setInterval(function() {
-    var timer = new Date();
+        var timer = new Date();
 
-    var closing_date = new Date("2020/11/14/ 00:00:00");
+        var closing_date = new Date("2020/11/14/ 00:00:00");
 
-    var ospan = document.getElementsByClassName("ospan");
-    var surplus = Math.round((closing_date - timer) / 1000);
+        var ospan = document.getElementsByClassName("ospan");
+        var surplus = Math.round((closing_date - timer) / 1000);
 
-    var hous = Math.round(surplus / 60 / 60);
+        var hous = Math.round(surplus / 60 / 60);
 
-    ospan[0].innerText = hous;
-    var miut = Math.round(surplus / 60 % 60);
+        ospan[0].innerText = hous;
+        var miut = Math.round(surplus / 60 % 60);
 
-    ospan[1].innerText = miut;
-    var secods = Math.round(surplus % 60);
+        ospan[1].innerText = miut;
+        var secods = Math.round(surplus % 60);
 
-    ospan[2].innerText = secods;
+        ospan[2].innerText = secods;
 
-}, 100)
+    }, 100)
+    //cookie使用存储账号信息
+function setCookie(key, val, n) {
+    let now = new Date();
+    now.setDate(now.getDate() + n);
+    let str = `${key}=${val};path=/;expires=${now}`;
+    document.cookie = str;
+}
+
+function getCookie(key) {
+    var arr = document.cookie.split('; ')
+    for (let i = 0; i < arr.length; i++) {
+        let newArr = arr[i].split('=');
+        if (newArr[0] == key) {
+            return newArr[1];
+        }
+    }
+}
+console.log(getCookie('name'));
+
+function removeCookie(key) {
+    setCookie(key, 1, -1);
+}
+removeCookie('name', 1)
+    //显示登陆后账户信息
+$(document).ready(function() {
+        if (getCookie("username")) {
+            $("#mysign").empty();
+            $("#mysign").append("欢迎用户：" + getCookie("username"));
+            $("#mysign").css({ "color": "red" })
+            $("#mylogin").empty();
+            $("#mylogin").append(getCookie("username"));
+            $("#mylogin").css({ "color": "red" })
+
+        }
+    })
+    //秒杀轮播
+var swipers = new Swiper('.myprice', {
+    slidesPerView: 4,
+    //spaceBetween: 30,
+    slidesPerGroup: 4,
+    loop: false,
+    loopFillGroupWithBlank: false,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});

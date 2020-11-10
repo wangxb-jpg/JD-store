@@ -567,6 +567,7 @@ a {
   border-top: 1px solid black;
   margin-top: -210px; }
   .seckill-out .seckill {
+    position: relative;
     width: 1190px;
     height: 260px;
     margin: 0 auto; }
@@ -605,3 +606,148 @@ a {
           color: white;
           text-align: center;
           line-height: 40px; }
+    .seckill-out .seckill .myprice {
+      border: 1px solid black;
+      width: 800px;
+      height: 260px;
+      position: absolute;
+      top: 0px;
+      left: 190px; }
+      .seckill-out .seckill .myprice .swiper-slide {
+        width: 200px;
+        height: 260px;
+        border-radius: 1px solid red; }
+        .seckill-out .seckill .myprice .swiper-slide dl {
+          width: 200px;
+          height: 260px;
+          border-radius: 1px solid red; }
+          .seckill-out .seckill .myprice .swiper-slide dl dt a img {
+            width: 140px;
+            height: 140px;
+            background-image: 140px;
+            margin: auto; }
+          .seckill-out .seckill .myprice .swiper-slide dl dd {
+            border: 1px solid yellow; }
+            .seckill-out .seckill .myprice .swiper-slide dl dd a p {
+              font-size: 12px;
+              font-weight: 400;
+              color: #333;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap; }
+    .seckill-out .seckill #jialunbo {
+      z-index: 101;
+      position: absolute;
+      top: 0;
+      left: 190px;
+      width: 1000px;
+      height: 260px; }
+
+#guding {
+  position: absolute;
+  top: 750px;
+  right: 80px;
+  width: 58px;
+  height: 300px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  #guding li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 60px;
+    font-size: 12px;
+    border: 1px solid #666666; }
+    #guding li a {
+      display: block;
+      width: 28px;
+      height: 38px; }
+
+.hotlove {
+  width: 1270px;
+  height: 590px;
+  margin: 40px auto 20px;
+  border: 1px solid white;
+  background-image: url(../img/hotlove.png);
+  background-size: cover; }
+  .hotlove .list-hot1 {
+    width: 1200px;
+    height: 440px;
+    margin: 140px auto 0;
+    display: flex;
+    justify-content: space-around; }
+    .hotlove .list-hot1 div {
+      width: 190px;
+      height: 210px;
+      background-image: url(../img/HOT背景图.png);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px; }
+      .hotlove .list-hot1 div p:nth-of-type(1) {
+        width: 174px;
+        height: 20px;
+        background-color: orange;
+        color: white;
+        border-radius: 12px 8px 12px 8px;
+        text-align: center; }
+      .hotlove .list-hot1 div p {
+        color: red;
+        margin: 10px auto; }
+  .hotlove .list-hot2 {
+    width: 1200px;
+    height: 440px;
+    margin: -210px auto 0;
+    display: flex;
+    justify-content: space-around; }
+    .hotlove .list-hot2 div {
+      width: 190px;
+      height: 210px;
+      background-image: url(../img/HOT背景图.png);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px; }
+      .hotlove .list-hot2 div p:nth-of-type(1) {
+        width: 174px;
+        height: 20px;
+        background-color: orange;
+        color: white;
+        border-radius: 12px 8px 12px 8px;
+        text-align: center; }
+      .hotlove .list-hot2 div p {
+        color: red;
+        margin: 10px auto; }
+
+#tese {
+  width: 100%;
+  height: 980px;
+  border: 1px solid black;
+  background-color: blue; }
+  #tese h2 {
+    color: white;
+    width: 100px;
+    margin: 20px auto; }
+
+#pindao {
+  width: 100%;
+  height: 950px;
+  border: 1px solid black;
+  background-color: red; }
+  #pindao h2 {
+    color: white;
+    width: 100px;
+    margin: 20px auto; }
+
+#recommend {
+  width: 1200px;
+  height: 650px;
+  border: 1px solid black;
+  margin: 0 auto; }
+  #recommend h2 {
+    width: 100px;
+    margin: 20px auto; }
