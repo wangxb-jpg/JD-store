@@ -186,3 +186,23 @@ var swipers = new Swiper('.myprice', {
         prevEl: '.swiper-button-prev',
     },
 });
+// 楼梯特效
+$(document).scroll(function() {
+    if ($(document).scrollTop() >= 750) {
+        $("#guding").css({
+
+            "position": "fixed",
+            "top": "50px"
+        })
+    } else {
+        $("#guding").css({ "position": "absolute", "top": "750px" })
+    }
+})
+$("#liilast").click(function() {
+    console.log("1");
+    $("body,html").animate({ "scrollTop": 3700 }, 500)
+})
+$("#listart").click(function() {
+    console.log("1");
+    $("body,html").animate({ "scrollTop": 750 }, 500)
+})

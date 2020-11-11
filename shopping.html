@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var arrid = [];
+        var arrnmb = [];
+
+        axios.get("http://localhost:3000/shoppings").then(res => {
+            console.log(res.data);
+            // console.log(res.data.length);
+            // console.log(res.data[0].uid);
+            // console.log(getCookie("username"));
+            for (var i = 0; i < res.data.length; i++) {
+                // if (res.data[i].uid == getCookie("username")) {
+                //     arrid.push(res.data[i].shopid);
+                //     arrnmb.push(res.data[i].nmb)
+                // }
+
+            }
+        });
+        // console.log(arrid);
+        // console.log(arrid.length);
+        // arrid.forEach(item => {
+        //     // console.log(arrid);
+        //     console.log(item);
+        //     axios.get(`http://localhost:3000/proudatas/${item}`).then(res => {
+        //         console.log("1");
+        //         console.log(res.data);
+
+        //     })
+        // })
+
+
+
+
+
+
+
+        // axios.get("http://localhost:3000/proudatas/1").then(res => {
+        //     console.log(res.data)
+        // })
+        function getCookie(key) {
+            var arr = document.cookie.split('; ')
+            for (let i = 0; i < arr.length; i++) {
+                let newArr = arr[i].split('=');
+                if (newArr[0] == key) {
+                    return newArr[1];
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

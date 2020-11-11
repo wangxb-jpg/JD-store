@@ -644,6 +644,7 @@ a {
       height: 260px; }
 
 #guding {
+  cursor: pointer;
   position: absolute;
   top: 750px;
   right: 80px;
@@ -747,7 +748,25 @@ a {
   width: 1200px;
   height: 650px;
   border: 1px solid black;
-  margin: 0 auto; }
+  margin: 0 auto;
+  background-color: #f5f5f5; }
   #recommend h2 {
     width: 100px;
     margin: 20px auto; }
+  #recommend .shopping {
+    width: 100%;
+    display: flex;
+    justify-content: space-around; }
+    #recommend .shopping div {
+      cursor: pointer;
+      width: 230px;
+      height: 322px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center; }
+      #recommend .shopping div p:nth-of-type(1) {
+        color: #666666; }
+      #recommend .shopping div p:nth-of-type(2) {
+        color: red; }

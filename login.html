@@ -181,6 +181,7 @@
         }
         
         #smitd {
+            cursor: pointer;
             width: 400px;
             height: 50px;
             color: white;
@@ -230,19 +231,37 @@
         </div>
     </div>
     <script src="js/jquery-1.11.0.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+        var txt1 = document.getElementById("txt1");
+        var txt2 = document.getElementById("txt2");
+        var smitd = document.getElementById("smitd");
+        smitd.onclick = function() {
+            axios.post("http://localhost:3000/accounts", {
+                username: txt1.value,
+                password: txt2.value
+            }).then(res => {
+                console.log(res)
+                alert("注册成功，请前往登录")
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+
+
+
         // $("#txt1").change(function() {
         //     console.log($("#txt1").val())
         // })
-        $("#smitd").click(function() {
-            $.get("http://jx.xuzhixiang.top/ap/api/reg.php", {
-                "username": $("#txt1").val(),
-                "password": $("#txt2").val()
-            }, data => {
-                console.log(data)
-            })
-            alert("注册成功,点击右上角前往登录")
-        })
+        // $("#smitd").click(function() {
+        //     $.get("http://jx.xuzhixiang.top/ap/api/reg.php", {
+        //         "username": $("#txt1").val(),
+        //         "password": $("#txt2").val()
+        //     }, data => {
+        //         console.log(data)
+        //     })
+        //     alert("注册成功,点击右上角前往登录")
+        // })
     </script>
 </body>
 
