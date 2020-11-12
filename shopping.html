@@ -6,50 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>购物车</title>
     <style>
-
+        p {
+            height: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        li {
+            width: 700px;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        
+        img {
+            width: 75px;
+        }
+        
+        span {
+            display: block;
+            width: 50px;
+            margin: 0 10px;
+        }
+        
+        input {
+            height: 20px;
+        }
     </style>
 </head>
 
 <body>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <p>全选：<input type="checkbox" name="全选" id="checkAll"></p>
+    <p>用户：<span id="usernames"></span></p>
+    <ul id="shopig">
+
+    </ul>
+    <p>总价：
+        <span id="totalPrice"></span></p>
+    <script src="https://unpkg.com/axios/dist/axios.min.js "></script>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/www.js"></script>
     <script>
-        var arrid = [];
-        var arrnmb = [];
+        // var arrid = [];
+        // var arrnmb = [];
+        // var shop = document.getElementById("shopig");
+        // var totalPrice = document.getElementById("totalPrice");
+        // axios.get("http://localhost:3000/shoppings ").then(res => {
+        //     // console.log(res.data);
+        //     // console.log(res.data.length);
+        //     // console.log(res.data[0].uid);
+        //     // console.log(getCookie("username "));
+        //     for (var i = 0; i < res.data.length; i++) {
+        //         if (res.data[i].uid == getCookie("username")) {
+        //             arrid.push(res.data[i].shopid);
+        //             arrnmb.push(res.data[i].nmb)
+        //         }
 
-        axios.get("http://localhost:3000/shoppings").then(res => {
-            console.log(res.data);
-            // console.log(res.data.length);
-            // console.log(res.data[0].uid);
-            // console.log(getCookie("username"));
-            for (var i = 0; i < res.data.length; i++) {
-                // if (res.data[i].uid == getCookie("username")) {
-                //     arrid.push(res.data[i].shopid);
-                //     arrnmb.push(res.data[i].nmb)
-                // }
-
-            }
-        });
-        // console.log(arrid);
-        // console.log(arrid.length);
-        // arrid.forEach(item => {
+        //     }
+        // }).then(function() {
         //     // console.log(arrid);
-        //     console.log(item);
-        //     axios.get(`http://localhost:3000/proudatas/${item}`).then(res => {
-        //         console.log("1");
-        //         console.log(res.data);
+        //     // console.log(arrid.length);
+        //     var str = " ";
+        //     var nums = 0;
+        //     for (let j = 0; j < arrid.length; j++) {
+        //         // console.log(arrid);
+        //         // console.log(item);
+        //         axios.get(`http://localhost:3000/proudatas/${arrid[j]}`).then(res => {
+        //             // console.log(arrnmb[j]);
+        //             // console.log(res.data);
+        //             str += `<li> <input type="checkbox" name="" class="check"><img src="${res.data.img}"><span>${res.data.title}</span><span>价格：${res.data.price}</span><span>数量：${arrnmb[j]}</span><input id="txt1" type="button" value="+"><input id="txt2" type="text" value="${arrnmb[j]}"><input id="txt3" type="button" value="-"><input id="txt4" type="button" value="删除商品"></li>
+        //          `;
+        //             shop.innerHTML = str;
+        //             nums += Number(arrnmb[j]) * Number(res.data.price);
+        //             totalPrice.innerText = nums;
+        //         })
 
-        //     })
-        // })
+        //     }
+
+        // var checkAll = document.getElementById("checkAll");
+        // var check = document.getElementsByClassName("check");
+
+        // checkAll.onclick = () => {
+        //     //让所有单个复选框的选中状态和全选复选框的状态一致
+        //     for (let i = 0; i < check.length; i++) {
+
+        //         check[i].checked = checkAll.checked;
+        //     }
+
+        // }
+
+        //在点击单个复选框时，判断选中的数量和总数量是否相同
+        var carts = new cart();
+        carts.showdata();
 
 
 
 
 
 
-
-        // axios.get("http://localhost:3000/proudatas/1").then(res => {
-        //     console.log(res.data)
-        // })
         function getCookie(key) {
             var arr = document.cookie.split('; ')
             for (let i = 0; i < arr.length; i++) {
